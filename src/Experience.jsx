@@ -5,7 +5,7 @@ import Name from "./Name";
 export default function Experience() {
   return (
     <>
-      <color args={['ivory']} attach="background" />
+      <color args={["ivory"]} attach="background" />
 
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
@@ -18,7 +18,6 @@ export default function Experience() {
       </PresentationControls>
 
       <ContactShadows position-y={-1} />
-
     </>
-  )
+  );
 }
