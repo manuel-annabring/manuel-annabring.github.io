@@ -9,6 +9,12 @@ export default function Name() {
     maxWidth: 2.7,
     letterSpacing: -0.04,
   });
+
+  const { outlineWidth, outlineColor } = useControls("Name", {
+    outlineWidth: 0.07,
+    outlineColor: "#b2c5d8",
+  });
+
   return (
     <Text
       position={position}
@@ -19,8 +25,10 @@ export default function Name() {
       maxWidth={maxWidth}
       textAlign="center"
       fontSize={0.5}
+      outlineWidth={outlineWidth}
+      outlineColor={outlineColor}
     >
-      Manuel Annabring
+      MANUEL ANNABRING
     </Text>
   );
 }
