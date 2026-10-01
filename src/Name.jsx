@@ -2,9 +2,25 @@ import { Text } from "@react-three/drei";
 import { useControls } from "leva";
 
 export default function Name() {
-  const { position, rotation } = useControls("Name", {
-    position: { value: [0, 0, 0], step: 0.1 },
-    name: { value: [0, 0, 0], step: 0.1 },
+  const { position, rotation, color, letterSpacing, maxWidth } = useControls("Name", {
+    position: { value: [0.9, 0.5, 0.9], step: 0.1 },
+    rotation: { value: [-0.3, -0.9, -0.3], min: -Math.PI * 2, max: Math.PI * 2, step: 0.1 },
+    color: "#3c79b4",
+    maxWidth: 2.7,
+    letterSpacing: -0.04,
   });
-  return <Text position={position}>Manuel Annabring</Text>;
+  return (
+    <Text
+      position={position}
+      rotation={rotation}
+      color={color}
+      fontWeight="bold"
+      letterSpacing={letterSpacing}
+      maxWidth={maxWidth}
+      textAlign="center"
+      fontSize={0.5}
+    >
+      Manuel Annabring
+    </Text>
+  );
 }
