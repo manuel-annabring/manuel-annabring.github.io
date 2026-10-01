@@ -1,4 +1,6 @@
 import { ContactShadows, Float, PresentationControls } from "@react-three/drei";
+import Box from "./Box";
+import Name from "./Name";
 
 export default function Experience() {
   return (
@@ -10,10 +12,8 @@ export default function Experience() {
 
       <PresentationControls global>
         <Float>
-          <mesh position-y={0}>
-            <boxGeometry />
-            <meshStandardMaterial color="mediumpurple" />
-          </mesh>
+          <Box />
+          <Name />
         </Float>
       </PresentationControls>
 
