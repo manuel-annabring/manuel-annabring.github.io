@@ -5,9 +5,9 @@ import { MathUtils } from "three";
 
 const BASE_COLOR = "#222222";
 const HOVER_COLOR = "#3c79b4";
-const LIFT = 0.15;
+const LIFT = 0.05;
 
-export default function Link({ text, href, position }) {
+export default function Link({ text, href, position, textProps }) {
   const lift = useRef();
   const [hovered, setHovered] = useState(false);
   useCursor(hovered);
@@ -34,16 +34,7 @@ export default function Link({ text, href, position }) {
           }}
           onPointerOut={() => setHovered(false)}
         >
-          <Text3D
-            font="./fonts/archivo/archivo-black-regular.json"
-            size={0.6}
-            height={0.18}
-            curveSegments={8}
-            bevelEnabled
-            bevelSize={0.01}
-            bevelThickness={0.02}
-            bevelSegments={3}
-          >
+          <Text3D font="./fonts/archivo/archivo-black-regular.json" {...textProps}>
             {text}
             <meshStandardMaterial color={hovered ? HOVER_COLOR : BASE_COLOR} />
           </Text3D>

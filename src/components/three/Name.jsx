@@ -2,7 +2,7 @@ import { Text } from "@react-three/drei";
 import { useControls } from "leva";
 
 export default function Name() {
-  const { position, maxWidth, fontSize } = useControls("Name", { position: [0, 2, 0], maxWidth: 6, fontSize: 1 });
+  const { position, maxWidth, fontSize } = useControls("Name", { position: [0, 0.8, 0], maxWidth: 0.4, fontSize: 0.4 });
   return (
     <Text
       position={position}
@@ -12,8 +12,8 @@ export default function Name() {
       maxWidth={maxWidth}
       textAlign="center"
       fontSize={fontSize}
-      outlineWidth={0.07}
-      outlineColor="#b2c5d8"
+      outlineWidth={0.04}
+      outlineColor="#d2dce6"
     >
       MANUEL ANNABRING
     </Text>
