@@ -1,4 +1,5 @@
 import { ContactShadows, Float, PerspectiveCamera, PresentationControls } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
 import { useControls } from "leva";
 import { useLayoutEffect, useRef } from "react";
 import Link from "./components/three/Link";
@@ -52,6 +53,11 @@ export default function Experience() {
     far: { value: 2.5, min: 0.5, max: 10, step: 0.1 },
   });
 
+  // shrink the content on narrow viewports (portrait) so it never exceeds the visible width
+  const { designWidth } = useControls("Layout", { designWidth: { value: 3, min: 1, max: 10, step: 0.1 } });
+  const viewportWidth = useThree((state) => state.viewport.width);
+  const contentScale = Math.min(1, viewportWidth / designWidth);
+
   // PerspectiveCamera looks down -z by default, so aim it at the target whenever position or target changes
   const camera = useRef();
   useLayoutEffect(() => {
@@ -68,22 +74,24 @@ export default function Experience() {
       <ambientLight intensity={1.5} />
 
       <PresentationControls global>
-        <Name />
-        {LINKS.map((link, index) => (
-          <Float
-            key={link.text}
-            speed={linkFloatControls.speed}
-            floatIntensity={linkFloatControls.floatIntensity}
-            rotationIntensity={linkFloatControls.rotationIntensity}
-          >
-            <Link
-              text={link.text}
-              href={link.href}
-              position={[0, yOffset - index * 0.38, index * 0.07]}
-              textProps={textControls}
-            />
-          </Float>
-        ))}
+        <group scale={contentScale}>
+          <Name />
+          {LINKS.map((link, index) => (
+            <Float
+              key={link.text}
+              speed={linkFloatControls.speed}
+              floatIntensity={linkFloatControls.floatIntensity}
+              rotationIntensity={linkFloatControls.rotationIntensity}
+            >
+              <Link
+                text={link.text}
+                href={link.href}
+                position={[0, yOffset - index * 0.38, index * 0.07]}
+                textProps={textControls}
+              />
+            </Float>
+          ))}
+        </group>
       </PresentationControls>
 
       <ContactShadows
