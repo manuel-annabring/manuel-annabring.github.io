@@ -8,7 +8,6 @@ export default function Name() {
       position={position}
       color="#3c79b4"
       fontWeight="bold"
-      letterSpacing={-0.04}
       lineHeight={0.95}
       maxWidth={maxWidth}
       textAlign="center"

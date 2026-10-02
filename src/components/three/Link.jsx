@@ -2,17 +2,12 @@ import { Center, Text3D, useCursor } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import { MathUtils } from "three";
-import { useControls } from "leva";
 
 const BASE_COLOR = "#222222";
 const HOVER_COLOR = "#3c79b4";
 const LIFT = 0.15;
 
-export default function Link({ text, href, position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 }) {
-  const controls = useControls(`Link ${text}`, {
-    position: { value: position, step: 0.05 },
-    rotation: { value: rotation, min: -Math.PI, max: Math.PI, step: 0.01 },
-  });
+export default function Link({ text, href, position }) {
   const lift = useRef();
   const [hovered, setHovered] = useState(false);
   useCursor(hovered);
@@ -29,7 +24,7 @@ export default function Link({ text, href, position = [0, 0, 0], rotation = [0, 
   };
 
   return (
-    <group position={controls.position} rotation={controls.rotation} scale={scale}>
+    <group position={position}>
       <group ref={lift}>
         <Center
           onClick={open}

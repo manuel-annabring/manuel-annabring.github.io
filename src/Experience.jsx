@@ -1,36 +1,30 @@
-import { ContactShadows, PerspectiveCamera, PresentationControls } from "@react-three/drei";
+import { ContactShadows, Float, PerspectiveCamera, PresentationControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import Name from "./components/three/Name";
 import Link from "./components/three/Link";
+import { useControls } from "leva";
 
 const LINKS = [
   {
-    text: "MANNABRI",
-    href: "https://mannabri.de",
-    position: [-3.7, 0.3, 0],
-    rotation: [0, 0, 0],
-  },
-  {
     text: "GitHub",
     href: "https://github.com/manuel-annabring",
-    position: [-1.25, 0.3, 0],
-    rotation: [0, 0, 0],
   },
   {
-    text: "LinkedIn",
-    href: "https://www.linkedin.com/in/manuel-annabring",
-    position: [1.25, 0.3, 0],
-    rotation: [0, 0, 0],
+    text: "MANNABRI",
+    href: "https://mannabri.de",
   },
   {
     text: "X",
     href: "https://x.com/manuelannabring",
-    position: [3.7, 0.3, 0],
-    rotation: [0, 0, 0],
+  },
+  {
+    text: "LinkedIn",
+    href: "https://www.linkedin.com/in/manuel-annabring",
   },
 ];
 
 export default function Experience() {
+  const linkFloatControls = useControls("Link Float", { speed: 1, floatIntensity: 0.7, rotationIntensity: 0.5 });
   return (
     <>
       <color args={["ivory"]} attach="background" />
@@ -40,8 +34,15 @@ export default function Experience() {
 
       <PresentationControls global>
         <Name />
-        {LINKS.map((link) => (
-          <Link key={link.text} text={link.text} href={link.href} position={link.position} rotation={link.rotation} />
+        {LINKS.map((link, index) => (
+          <Float
+            key={link.text}
+            speed={linkFloatControls.speed}
+            floatIntensity={linkFloatControls.floatIntensity}
+            rotationIntensity={linkFloatControls.rotationIntensity}
+          >
+            <Link text={link.text} href={link.href} position={[0, -index, 0]} />
+          </Float>
         ))}
       </PresentationControls>
     </>
