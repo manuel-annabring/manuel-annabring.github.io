@@ -1,0 +1,107 @@
+import { ContactShadows, Float, PerspectiveCamera, PresentationControls } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
+import { useControls } from "leva";
+import { useLayoutEffect, useRef } from "react";
+import Link from "./components/three/Link";
+import Name from "./components/three/Name";
+
+const LINKS = [
+  {
+    text: "X",
+    href: "https://x.com/manuelannabring",
+  },
+  {
+    text: "GitHub",
+    href: "https://github.com/manuel-annabring",
+  },
+  {
+    text: "LinkedIn",
+    href: "https://www.linkedin.com/in/manuel-annabring",
+  },
+  {
+    text: "MANNABRI",
+    href: "https://mannabri.de",
+  },
+];
+
+export default function Experience() {
+  const linkFloatControls = useControls("Link Float", { speed: 1, floatIntensity: 0.5, rotationIntensity: 0.5 });
+
+  const {yOffset, ...textControls} = useControls("Link Text", {
+    yOffset: { value: 0.1, min: -2, max: 2, step: 0.1 },
+    size: { value: 0.2, min: 0.1, max: 2, step: 0.05 },
+    height: { value: 0.15, min: 0.01, max: 1, step: 0.01 },
+    letterSpacing: { value: 0, min: -0.2, max: 0.5, step: 0.01 },
+    curveSegments: { value: 8, min: 1, max: 32, step: 1 },
+    bevelEnabled: true,
+    bevelSize: { value: 0.01, min: 0, max: 0.1, step: 0.005 },
+    bevelThickness: { value: 0.02, min: 0, max: 0.2, step: 0.005 },
+    bevelSegments: { value: 3, min: 1, max: 12, step: 1 },
+  });
+
+  const { cameraPosition, cameraTarget, fov } = useControls("Camera", {
+    cameraPosition: { value: [-1.5, 1.1, 3.5], step: 0.1 },
+    cameraTarget: { value: [0, 0, 0], step: 0.1 },
+    fov: { value: 45, min: 10, max: 120, step: 1 },
+  });
+
+  const shadowControls = useControls("Shadow", {
+    y: { value: -1.5, min: -5, max: 0, step: 0.05 },
+    opacity: { value: 0.4, min: 0, max: 1, step: 0.05 },
+    scale: { value: 6, min: 1, max: 20, step: 0.5 },
+    blur: { value: 2.5, min: 0, max: 10, step: 0.1 },
+    far: { value: 2.5, min: 0.5, max: 10, step: 0.1 },
+  });
+
+  // shrink the content on narrow viewports (portrait) so it never exceeds the visible width
+  const { designWidth } = useControls("Layout", { designWidth: { value: 3, min: 1, max: 10, step: 0.1 } });
+  const viewportWidth = useThree((state) => state.viewport.width);
+  const contentScale = Math.min(1, viewportWidth / designWidth);
+
+  // PerspectiveCamera looks down -z by default, so aim it at the target whenever position or target changes
+  const camera = useRef();
+  useLayoutEffect(() => {
+    camera.current.lookAt(...cameraTarget);
+  }, [cameraPosition, cameraTarget]);
+
+  return (
+    <>
+      <color args={["ivory"]} attach="background" />
+
+      <PerspectiveCamera ref={camera} makeDefault position={cameraPosition} fov={fov} />
+
+      <directionalLight position={[5, 2, 4]} intensity={20} />
+      <ambientLight intensity={1.5} />
+
+      <PresentationControls global>
+        <group scale={contentScale}>
+          <Name />
+          {LINKS.map((link, index) => (
+            <Float
+              key={link.text}
+              speed={linkFloatControls.speed}
+              floatIntensity={linkFloatControls.floatIntensity}
+              rotationIntensity={linkFloatControls.rotationIntensity}
+            >
+              <Link
+                text={link.text}
+                href={link.href}
+                position={[0, yOffset - index * 0.38, index * 0.07]}
+                textProps={textControls}
+              />
+            </Float>
+          ))}
+        </group>
+      </PresentationControls>
+
+      <ContactShadows
+        position={[0, shadowControls.y, 0]}
+        opacity={shadowControls.opacity}
+        scale={shadowControls.scale}
+        blur={shadowControls.blur}
+        far={shadowControls.far}
+        color="#222222"
+      />
+    </>
+  );
+}
