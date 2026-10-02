@@ -1,33 +1,51 @@
-import { ContactShadows, OrbitControls } from "@react-three/drei";
+import { ContactShadows, PerspectiveCamera, PresentationControls } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
 import Name from "./components/three/Name";
 import Link from "./components/three/Link";
-import { useFrame, useThree } from "@react-three/fiber";
-import { useEffect } from "react";
+
+const LINKS = [
+  {
+    text: "MANNABRI",
+    href: "https://mannabri.de",
+    position: [-3.7, 0.3, 0],
+    rotation: [0, 0, 0],
+  },
+  {
+    text: "GitHub",
+    href: "https://github.com/manuel-annabring",
+    position: [-1.25, 0.3, 0],
+    rotation: [0, 0, 0],
+  },
+  {
+    text: "LinkedIn",
+    href: "https://www.linkedin.com/in/manuel-annabring",
+    position: [1.25, 0.3, 0],
+    rotation: [0, 0, 0],
+  },
+  {
+    text: "X",
+    href: "https://x.com/manuelannabring",
+    position: [3.7, 0.3, 0],
+    rotation: [0, 0, 0],
+  },
+];
 
 export default function Experience() {
-  useFrame((state) => {
-    console.log(state.camera.position)
-  })
   return (
     <>
       <color args={["ivory"]} attach="background" />
 
-      <OrbitControls makeDefault />
+      <axesHelper args={[5]} />
 
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
 
-      {/* <PresentationControls global> */}
-      {/* <Float> */}
-      <Name />
-      <Link text={"X"} position={[-0.4, 0.7, 3.3]} rotation={[0, -1.1, 0]} />
-      <Link text={"in"} position={[-4.3, 0.7, 1.1]} rotation={[0, 0, 0]} />
-      <Link text={"GitHub"} position={[1.7, 0.7, 0.6]} rotation={[0, -0.7, 0]} />
-      <Link text={"MANNABRI"} position={[-2.1, 0.7, -3]} rotation={[0, 0, 0]} />
-      {/* </Float> */}
-      {/* </PresentationControls> */}
-
-      <ContactShadows position-y={0} />
+      <PresentationControls global>
+        <Name />
+        {LINKS.map((link) => (
+          <Link key={link.text} text={link.text} href={link.href} position={link.position} rotation={link.rotation} />
+        ))}
+      </PresentationControls>
     </>
   );
 }
