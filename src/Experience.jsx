@@ -35,9 +35,7 @@ export default function Experience() {
     <>
       <color args={["ivory"]} attach="background" />
 
-      <axesHelper args={[5]} />
-
-      <directionalLight position={[1, 2, 3]} intensity={4.5} />
+      <directionalLight position={[1, 2, 3]} intensity={10.5} />
       <ambientLight intensity={1.5} />
 
       <PresentationControls global>
