@@ -11,7 +11,7 @@ export default function App() {
           fov: 45,
           near: 0.1,
           far: 2000,
-          position: [-2, 1.5, 4],
+          position: [-2.8, 4.3, 6.2],
         }}
       >
         <Experience />

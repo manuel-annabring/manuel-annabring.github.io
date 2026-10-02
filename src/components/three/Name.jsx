@@ -3,8 +3,8 @@ import { useControls } from "leva";
 
 export default function Name() {
   const { position, rotation, color, letterSpacing, maxWidth } = useControls("Name", {
-    position: { value: [0.9, 0.5, 0.9], step: 0.1 },
-    rotation: { value: [-0.3, -0.9, -0.3], min: -Math.PI * 2, max: Math.PI * 2, step: 0.1 },
+    position: { value: [-1.4, 0.5, 0.9], step: 0.1 },
+    rotation: { value: [0, -0.3, 0], min: -Math.PI * 2, max: Math.PI * 2, step: 0.1 },
     color: "#3c79b4",
     maxWidth: 2.7,
     letterSpacing: -0.04,
