@@ -26,7 +26,7 @@ const LINKS = [
 export default function Experience() {
   const linkFloatControls = useControls("Link Float", { speed: 1, floatIntensity: 0.5, rotationIntensity: 0.5 });
 
-  const textControls = useControls("Link Text", {
+  const {yOffset, ...textControls} = useControls("Link Text", {
     yOffset: { value: 0.1, min: -2, max: 2, step: 0.1 },
     size: { value: 0.2, min: 0.1, max: 2, step: 0.05 },
     height: { value: 0.15, min: 0.01, max: 1, step: 0.01 },
@@ -79,7 +79,7 @@ export default function Experience() {
             <Link
               text={link.text}
               href={link.href}
-              position={[0, textControls.yOffset - index * 0.38, index * 0.07]}
+              position={[0, yOffset - index * 0.38, index * 0.07]}
               textProps={textControls}
             />
           </Float>
