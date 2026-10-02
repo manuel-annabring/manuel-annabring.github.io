@@ -1,4 +1,4 @@
-import { Float, PerspectiveCamera, PresentationControls } from "@react-three/drei";
+import { ContactShadows, Float, PerspectiveCamera, PresentationControls } from "@react-three/drei";
 import { useControls } from "leva";
 import { useLayoutEffect, useRef } from "react";
 import Link from "./components/three/Link";
@@ -24,10 +24,10 @@ const LINKS = [
 ];
 
 export default function Experience() {
-  const linkFloatControls = useControls("Link Float", { speed: 1, floatIntensity: 0.7, rotationIntensity: 0.5 });
+  const linkFloatControls = useControls("Link Float", { speed: 1, floatIntensity: 0.5, rotationIntensity: 0.5 });
 
   const textControls = useControls("Link Text", {
-    yOffset: {value: 0.1, min: -2, max: 2, step: 0.1},
+    yOffset: { value: 0.1, min: -2, max: 2, step: 0.1 },
     size: { value: 0.2, min: 0.1, max: 2, step: 0.05 },
     height: { value: 0.15, min: 0.01, max: 1, step: 0.01 },
     letterSpacing: { value: 0, min: -0.2, max: 0.5, step: 0.01 },
@@ -39,9 +39,17 @@ export default function Experience() {
   });
 
   const { cameraPosition, cameraTarget, fov } = useControls("Camera", {
-    cameraPosition: { value: [-1.5, 1.1, 3], step: 0.1 },
+    cameraPosition: { value: [-1.5, 1.1, 3.5], step: 0.1 },
     cameraTarget: { value: [0, 0, 0], step: 0.1 },
     fov: { value: 45, min: 10, max: 120, step: 1 },
+  });
+
+  const shadowControls = useControls("Shadow", {
+    y: { value: -1.5, min: -5, max: 0, step: 0.05 },
+    opacity: { value: 0.4, min: 0, max: 1, step: 0.05 },
+    scale: { value: 6, min: 1, max: 20, step: 0.5 },
+    blur: { value: 2.5, min: 0, max: 10, step: 0.1 },
+    far: { value: 2.5, min: 0.5, max: 10, step: 0.1 },
   });
 
   // PerspectiveCamera looks down -z by default, so aim it at the target whenever position or target changes
@@ -68,10 +76,24 @@ export default function Experience() {
             floatIntensity={linkFloatControls.floatIntensity}
             rotationIntensity={linkFloatControls.rotationIntensity}
           >
-            <Link text={link.text} href={link.href} position={[0, textControls.yOffset - index * 0.38, index * 0.07]} textProps={textControls} />
+            <Link
+              text={link.text}
+              href={link.href}
+              position={[0, textControls.yOffset - index * 0.38, index * 0.07]}
+              textProps={textControls}
+            />
           </Float>
         ))}
       </PresentationControls>
+
+      <ContactShadows
+        position={[0, shadowControls.y, 0]}
+        opacity={shadowControls.opacity}
+        scale={shadowControls.scale}
+        blur={shadowControls.blur}
+        far={shadowControls.far}
+        color="#222222"
+      />
     </>
   );
 }
