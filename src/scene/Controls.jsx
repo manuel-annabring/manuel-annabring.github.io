@@ -1,9 +1,8 @@
 import { PresentationControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { useControls } from "leva";
-import Column from "./column/Column";
 
-export default function Content() {
+export default function Controls({ children }) {
   // shrink the content on narrow viewports (portrait) so it never exceeds the visible width
   const { designWidth } = useControls("Layout", { designWidth: { value: 7, min: 1, max: 10, step: 0.1 } });
   const viewportWidth = useThree((state) => state.viewport.width);
@@ -11,10 +10,7 @@ export default function Content() {
 
   return (
     <PresentationControls global damping={0.1} polar={[0, 0]}>
-      <axesHelper scale={10} />
-      <group scale={contentScale}>
-        <Column />
-      </group>
+      <group scale={contentScale}>{children}</group>
     </PresentationControls>
   );
 }
