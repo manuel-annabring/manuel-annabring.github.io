@@ -1,8 +1,10 @@
 import { ContactShadows } from "@react-three/drei";
 import { useControls } from "leva";
-import column from "../column/columnConfig";
+import useColumn from "../column/useColumn";
 
 export default function Shadows() {
+  const column = useColumn();
+
   const { yOffset, opacity, scale, blur, far } = useControls("Shadow", {
     yOffset: { value: 0, min: -1, max: 1, step: 0.05 },
     opacity: { value: 1, min: 0, max: 1, step: 0.05 },

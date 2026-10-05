@@ -1,12 +1,7 @@
-const radius = 1.4;
-const height = 3.5;
-const radialSegments = 64;
-
 const column = {
-  radius,
-  height,
-  radialSegments,
-  bottomY: -height / 2,
+  radius: 1.4,
+  height: 3.5,
+  radialSegments: 64,
 };
 
 export default column;
