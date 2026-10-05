@@ -9,7 +9,14 @@ export default function Content() {
   const contentScale = Math.min(1, viewportWidth / designWidth);
 
   return (
-    <PresentationControls global>
+    <PresentationControls
+      global
+      snap
+      damping={0.1}
+      snap={0.1}
+      polar={[-Math.PI / 3, Math.PI / 3]}
+      azimuth={[-Math.PI / 2, Math.PI / 2]}
+    >
       <group scale={contentScale}>
         <Float>
           <Box>
