@@ -1,12 +1,13 @@
-import useColumn from "./useColumn";
+import ColumnBase from "./ColumnBase";
+import ColumnBody from "./ColumnBody";
+import ColumnCap from "./ColumnCap";
 
 export default function Column() {
-  const column = useColumn();
-
   return (
-    <mesh>
-      <cylinderGeometry args={[column.radius, column.radius, column.height, column.radialSegments]} />
-      <meshStandardMaterial flatShading />
-    </mesh>
+    <group>
+      <ColumnBody />
+      <ColumnBase />
+      <ColumnCap />
+    </group>
   );
 }
