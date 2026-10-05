@@ -1,28 +1,19 @@
-import { Box, Float, PresentationControls } from "@react-three/drei";
+import { PresentationControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { useControls } from "leva";
+import Column from "./column/Column";
 
 export default function Content() {
   // shrink the content on narrow viewports (portrait) so it never exceeds the visible width
-  const { designWidth } = useControls("Layout", { designWidth: { value: 3, min: 1, max: 10, step: 0.1 } });
+  const { designWidth } = useControls("Layout", { designWidth: { value: 7, min: 1, max: 10, step: 0.1 } });
   const viewportWidth = useThree((state) => state.viewport.width);
   const contentScale = Math.min(1, viewportWidth / designWidth);
 
   return (
-    <PresentationControls
-      global
-      snap
-      damping={0.1}
-      snap={0.1}
-      polar={[-Math.PI / 3, Math.PI / 3]}
-      azimuth={[-Math.PI / 2, Math.PI / 2]}
-    >
+    <PresentationControls global damping={0.1} polar={[0, 0]}>
+      <axesHelper scale={10} />
       <group scale={contentScale}>
-        <Float>
-          <Box>
-            <meshStandardMaterial color="tomato" />
-          </Box>
-        </Float>
+        <Column />
       </group>
     </PresentationControls>
   );
