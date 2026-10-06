@@ -3,6 +3,19 @@
 
 const posters = [
   {
+    id: "really-big-poster",
+    type: "image",
+    size: {
+      width: 8,
+      height: 0.2,
+    },
+    position: {
+      angle: Math.PI * 2 * 0,
+      y: 1.5,
+    },
+    path: "/posters/ocean.png",
+  },
+  {
     id: "project-ocean",
     type: "image",
     size: {
@@ -10,7 +23,7 @@ const posters = [
       height: 2,
     },
     position: {
-      angle: Math.PI * 2 * 0,
+      angle: Math.PI * 2 * 0.01,
       y: -1,
     },
     path: "/posters/ocean.png",
