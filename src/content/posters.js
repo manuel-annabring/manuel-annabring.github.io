@@ -1,27 +1,22 @@
 // angle (radians, with 0 at +z, increasing toward +x)
 // y is in world units from the body center
+// width is in world units, height comes from image
 
 const posters = [
   {
     id: "really-big-poster",
     type: "image",
-    size: {
-      width: 8,
-      height: 0.2,
-    },
+    width: 3,
     position: {
-      angle: Math.PI * 2 * 0,
-      y: 1.5,
+      angle: Math.PI * 2 * 0.7,
+      y: -0.2,
     },
     path: "/posters/ocean.png",
   },
   {
-    id: "project-ocean",
+    id: "regular-poster",
     type: "image",
-    size: {
-      width: 1,
-      height: 2,
-    },
+    width: 1,
     position: {
       angle: Math.PI * 2 * 0.01,
       y: -1,
@@ -32,11 +27,11 @@ const posters = [
     id: "first-name",
     type: "text",
     position: {
-      angle: Math.PI * 2 * 0.05,
+      angle: Math.PI * 2 * 0.1,
       y: 1,
     },
     scale: 0.5,
-    text: "Manuel"
+    text: "Manuel",
   },
   {
     id: "last-name",
@@ -46,28 +41,22 @@ const posters = [
       y: 0.5,
     },
     scale: 0.3,
-    text: "Annabring"
+    text: "Annabring",
   },
   {
-    id: "project-trees",
+    id: "tiny-poster",
     type: "image",
-    size: {
-      width: 0.1,
-      height: 0.4,
-    },
+    width: 0.1,
     position: {
-      angle: Math.PI * 2 * 0.8,
+      angle: Math.PI * 2 * 1.2,
       y: 1,
     },
     path: "/posters/trees.png",
   },
   {
-    id: "some-project",
+    id: "large-poster",
     type: "image",
-    size: {
-      width: 2,
-      height: 1,
-    },
+    width: 2,
     position: {
       angle: Math.PI * 2 * 0.3,
       y: 0,
@@ -75,12 +64,9 @@ const posters = [
     path: "/posters/ocean.png",
   },
   {
-    id: "another-project",
+    id: "small-poster",
     type: "image",
-    size: {
-      width: 0.5,
-      height: 3,
-    },
+    width: 0.5,
     position: {
       angle: Math.PI * 2 * 0.4,
       y: 0.3,
