@@ -5,7 +5,7 @@ export default function ColumnBase() {
   return (
     <mesh position-y={-body.height / 2 - base.height / 2}>
       <cylinderGeometry args={[base.radius, base.radius, base.height, base.radialSegments]} />
-      <meshStandardMaterial flatShading />
+      <meshStandardMaterial />
     </mesh>
   );
 }

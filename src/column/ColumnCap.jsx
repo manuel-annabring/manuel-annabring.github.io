@@ -5,7 +5,7 @@ export default function ColumnCap() {
   return (
     <mesh position-y={body.height / 2 + cap.height / 2}>
       <cylinderGeometry args={[cap.radius, cap.radius, cap.height, cap.radialSegments]} />
-      <meshStandardMaterial flatShading />
+      <meshStandardMaterial />
     </mesh>
   );
 }

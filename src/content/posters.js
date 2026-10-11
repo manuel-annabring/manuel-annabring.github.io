@@ -24,24 +24,44 @@ const posters = [
     path: "/posters/ocean.png",
   },
   {
-    id: "first-name",
+    id: "tiny-text",
     type: "text",
     position: {
       angle: Math.PI * 2 * 0.1,
-      y: 1,
+      y: 1.4,
     },
-    scale: 0.5,
-    text: "Manuel",
+    fontSize: 0.5,
+    text: "Hi!",
   },
   {
-    id: "last-name",
+    id: "small-text",
     type: "text",
     position: {
       angle: Math.PI * 2 * 0.05,
-      y: 0.5,
+      y: 1,
     },
-    scale: 0.3,
-    text: "Annabring",
+    fontSize: 0.3,
+    text: "Hello!",
+  },
+  {
+    id: "medium-text",
+    type: "text",
+    position: {
+      angle: Math.PI * 2 * 0.05,
+      y: 0.7,
+    },
+    fontSize: 0.3,
+    text: "Hello, there!",
+  },
+  {
+    id: "long-text",
+    type: "text",
+    position: {
+      angle: Math.PI * 2 * 0.05,
+      y: 0.4,
+    },
+    fontSize: 0.3,
+    text: "Hello, there! My name is Manuel.",
   },
   {
     id: "tiny-poster",

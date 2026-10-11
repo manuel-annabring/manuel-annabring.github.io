@@ -5,7 +5,7 @@ export default function ColumnBody() {
   return (
     <mesh>
       <cylinderGeometry args={[body.radius, body.radius, body.height, body.radialSegments]} />
-      <meshStandardMaterial flatShading />
+      <meshStandardMaterial />
     </mesh>
   );
 }
