@@ -1,8 +1,8 @@
 const poster = {
-  radiusOffset: 0.003, // avoid z-fighting between column body and posters
+  layerStep: 0.003, // avoid z-fighting between column body and posters, set a layer per poster
   imageRadialSegmentsMin: 2,
   imageRadialSegmentsPerRadian: 10,
-  textRadialSegmentsPerGlyph: 2, // determines how "curved" each text glyph is for beding around the column body
+  textGlyphDetail: 2, // glyphGeometryDetail: subdivides each letter so it follows the curve
 };
 
 export default poster;

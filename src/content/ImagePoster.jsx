@@ -3,23 +3,22 @@ import { useThree } from "@react-three/fiber";
 import { SRGBColorSpace } from "three";
 import posterConfig from "./posterConfig";
 
-export default function ImagePoster({ poster, bodyRadius }) {
-  const { position, width, path } = poster;
+export default function ImagePoster({ poster, radius }) {
+  const { position, width, path, layer = 1 } = poster;
 
   // load the texture
-  const gl = useThree(state => state.gl);
+  const gl = useThree((state) => state.gl);
   const texture = useTexture(path, (t) => {
     t.colorSpace = SRGBColorSpace;
     t.anisotropy = gl.capabilities.getMaxAnisotropy();
   });
 
   // calculate the geometry's dimensions
-  const thetaLength = width / bodyRadius;
+  const thetaLength = width / radius;
   const radialSegments = Math.max(
     Math.ceil(thetaLength * posterConfig.imageRadialSegmentsPerRadian),
     posterConfig.imageRadialSegmentsMin,
   );
-  const radius = bodyRadius + posterConfig.radiusOffset;
   const height = (width * texture.height) / texture.width;
 
   return (
