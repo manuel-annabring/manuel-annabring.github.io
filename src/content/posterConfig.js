@@ -3,6 +3,7 @@ const poster = {
   imageRadialSegmentsMin: 2,
   imageRadialSegmentsPerRadian: 10,
   textGlyphDetail: 2, // glyphGeometryDetail: subdivides each letter so it follows the curve
+  clickDragThreshold: 5,
 };
 
 export default poster;

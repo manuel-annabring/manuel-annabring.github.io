@@ -14,6 +14,8 @@
 // - position: { angle, y }
 // - layer:    whole number, 1 or more. Sets how far the poster sits above the
 //             surface (radius = body radius + layer * layerStep).
+// - url:      optional. Makes the poster clickable: opens in a new tab and
+//             shows a pointer cursor on hover. Posters without it are inert.
 //
 // IMAGE FIELDS
 // - width: width in world units. The height follows the image's aspect ratio.
@@ -42,6 +44,7 @@ const posters = [
     },
     path: "/posters/ocean.png",
     layer: 2,
+    url: "https://www.google.de",
   },
   {
     id: "regular-poster",
@@ -64,6 +67,7 @@ const posters = [
     fontSize: 0.5,
     text: "Hi!",
     layer: 1,
+    url: "https://github.com/manuel-annabring",
   },
   {
     id: "small-text",
@@ -119,6 +123,7 @@ const posters = [
     },
     path: "/posters/ocean.png",
     layer: 1,
+    url: "https://www.wikipedia.de",
   },
   {
     id: "small-poster",
@@ -129,7 +134,8 @@ const posters = [
       y: 0.3,
     },
     path: "/posters/trees.png",
-    layer: 1,
+    layer: 2,
+    url: "https://www.faz.de",
   },
 ];
 
