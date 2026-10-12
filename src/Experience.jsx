@@ -10,12 +10,12 @@ export default function Experience() {
     <>
       <color args={["ivory"]} attach="background" />
       <Lights />
-      <Shadows />
       <Controls />
 
       <Layout>
         <Column />
         <Content />
+        <Shadows />
       </Layout>
     </>
   );
