@@ -33,110 +33,67 @@
 //   overlaps itself.
 // - Posters are placed by hand: check that they don't run over the cap or base.
 
+import { MathUtils } from "three";
+
 const posters = [
   {
-    id: "really-big-poster",
+    id: "name",
     type: "image",
-    width: 3,
+    width: 1.8,
     position: {
-      angle: Math.PI * 2 * 0.7,
-      y: -0.2,
+      angle: MathUtils.degToRad(30),
+      y: 0.44,
     },
-    path: "/posters/ocean.png",
-    layer: 2,
-    url: "https://www.google.de",
-  },
-  {
-    id: "regular-poster",
-    type: "image",
-    width: 1,
-    position: {
-      angle: Math.PI * 2 * 0.01,
-      y: -1,
-    },
-    path: "/posters/ocean.png",
+    path: "/posters/name.png",
     layer: 1,
   },
   {
-    id: "tiny-text",
-    type: "text",
+    id: "github",
+    type: "image",
+    width: 0.57,
     position: {
-      angle: Math.PI * 2 * 0.1,
-      y: 1.4,
+      angle: MathUtils.degToRad(5),
+      y: -1.28,
     },
-    fontSize: 0.5,
-    text: "Hi!",
+    path: "/posters/github.png",
     layer: 1,
     url: "https://github.com/manuel-annabring",
   },
   {
-    id: "small-text",
-    type: "text",
-    position: {
-      angle: Math.PI * 2 * 0.05,
-      y: 1,
-    },
-    fontSize: 0.3,
-    text: "Hello!",
-    layer: 1,
-  },
-  {
-    id: "medium-text",
-    type: "text",
-    position: {
-      angle: Math.PI * 2 * 0.05,
-      y: 0.7,
-    },
-    fontSize: 0.3,
-    text: "Hello, there!",
-    layer: 1,
-  },
-  {
-    id: "long-text",
-    type: "text",
-    position: {
-      angle: Math.PI * 2 * 0.05,
-      y: 0.4,
-    },
-    fontSize: 0.3,
-    text: "Hello, there! My name is Manuel.",
-    layer: 3,
-  },
-  {
-    id: "tiny-poster",
+    id: "x",
     type: "image",
-    width: 0.1,
+    width: 0.57,
     position: {
-      angle: Math.PI * 2 * 1.2,
-      y: 1,
+      angle: MathUtils.degToRad(30),
+      y: -1.28,
     },
-    path: "/posters/trees.png",
+    path: "/posters/x.png",
     layer: 1,
+    url: "https://x.com/manuelannabring",
   },
   {
-    id: "large-poster",
+    id: "linkedin",
     type: "image",
-    width: 2,
+    width: 0.57,
     position: {
-      angle: Math.PI * 2 * 0.3,
-      y: 0,
+      angle: MathUtils.degToRad(55),
+      y: -1.28,
     },
-    path: "/posters/ocean.png",
+    path: "/posters/linkedin.png",
     layer: 1,
-    url: "https://www.wikipedia.de",
+    url: "https://www.linkedin.com/in/manuel-annabring",
   },
-  {
-    id: "small-poster",
-    type: "image",
-    width: 0.5,
-    position: {
-      angle: Math.PI * 2 * 0.4,
-      y: 0.3,
-    },
-    path: "/posters/trees.png",
-    layer: 2,
-    url: "https://www.faz.de",
-  },
+  // {
+  //   id: "medium-text",
+  //   type: "text",
+  //   position: {
+  //     angle: Math.PI * 2 * 0.05,
+  //     y: 0.7,
+  //   },
+  //   fontSize: 0.3,
+  //   text: "Hello, there!",
+  //   layer: 1,
+  // },
 ];
 
 export default posters;
