@@ -4,9 +4,12 @@ import ImagePoster from "./ImagePoster";
 import posterConfig from "./posterConfig";
 import posters from "./posters";
 import TextPoster from "./TextPoster";
+import { useTexture } from "@react-three/drei";
 
 export default function Content() {
   const { body } = useColumn();
+
+  const normalMapTexture = useTexture("/textures/Paper001_1K-JPG_NormalGL.jpg");
 
   return posters.map((poster) => {
     const { type, id, layer = 1 } = poster;
@@ -16,7 +19,7 @@ export default function Content() {
     if (type === "image") {
       return (
         <Suspense key={id}>
-          <ImagePoster poster={poster} radius={radius} />
+          <ImagePoster poster={poster} radius={radius} normalMapTexture={normalMapTexture} />
         </Suspense>
       );
     }

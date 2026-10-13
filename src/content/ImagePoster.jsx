@@ -1,13 +1,20 @@
 import { useTexture } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
-import { SRGBColorSpace } from "three";
+import { useControls } from "leva";
+import { useMemo } from "react";
+import { RepeatWrapping, SRGBColorSpace, Vector2 } from "three";
 import posterConfig from "./posterConfig";
 import useLink from "./useLink";
 
-export default function ImagePoster({ poster, radius }) {
+export default function ImagePoster({ poster, radius, normalMapTexture }) {
   const { position, width, path, layer = 1, url } = poster;
 
   const { onClick, onPointerOver, onPointerOut } = useLink(url);
+
+  const { normalScale, normalMapTileSize } = useControls("ImagePoster", {
+    normalScale: { value: 1.7, min: 0, max: 10, step: 0.01 },
+    normalMapTileSize: { value: 1, min: 0.05, max: 4, step: 0.1 },
+  });
 
   // load the texture
   const gl = useThree((state) => state.gl);
@@ -24,11 +31,26 @@ export default function ImagePoster({ poster, radius }) {
   );
   const height = (width * texture.height) / texture.width;
 
+  // prepare normal map based on poster dimensions
+  const normalMapTextureClone = useMemo(() => {
+    const clone = normalMapTexture.clone();
+    clone.wrapS = RepeatWrapping;
+    clone.wrapT = RepeatWrapping;
+    clone.needsUpdate = true;
+    return clone;
+  }, [normalMapTexture]);
+  normalMapTextureClone.repeat.x = width / normalMapTileSize;
+  normalMapTextureClone.repeat.y = height / normalMapTileSize;
+
   return (
     <group rotation-y={position.angle} position-y={position.y}>
       <mesh onClick={onClick} onPointerOver={onPointerOver} onPointerOut={onPointerOut}>
         <cylinderGeometry args={[radius, radius, height, radialSegments, 1, true, -thetaLength / 2, thetaLength]} />
-        <meshStandardMaterial map={texture} />
+        <meshStandardMaterial
+          map={texture}
+          normalMap={normalMapTextureClone}
+          normalScale={new Vector2(normalScale, normalScale)}
+        />
       </mesh>
     </group>
   );
