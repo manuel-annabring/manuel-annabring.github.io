@@ -9,7 +9,7 @@ import { useTexture } from "@react-three/drei";
 export default function Content() {
   const { body } = useColumn();
 
-  const normalMapTexture = useTexture("/textures/Paper001_1K-JPG_NormalGL.jpg");
+  const normalMapTexture = useTexture("/textures/Paper005_1K-JPG_NormalGL.jpg");
 
   return posters.map((poster) => {
     const { type, id, layer = 1 } = poster;
