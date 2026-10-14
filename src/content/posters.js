@@ -46,6 +46,7 @@ const posters = [
     },
     path: "/posters/name.png",
     layer: 1,
+    label: "Manuel Annabring",
   },
   {
     id: "github",
@@ -58,6 +59,7 @@ const posters = [
     path: "/posters/github.png",
     layer: 1,
     url: "https://github.com/manuel-annabring",
+    label: "Personal GitHub account",
   },
   {
     id: "x",
@@ -70,6 +72,7 @@ const posters = [
     path: "/posters/x.png",
     layer: 1,
     url: "https://x.com/manuelannabring",
+    label: "Personal X account",
   },
   {
     id: "linkedin",
@@ -82,6 +85,7 @@ const posters = [
     path: "/posters/linkedin.png",
     layer: 1,
     url: "https://linkedin.com/in/manuel-annabring",
+    label: "Personal LinkedIn account",
   },
   {
     id: "mannabri",
@@ -94,6 +98,7 @@ const posters = [
     path: "/posters/mannabri.png",
     layer: 2,
     url: "https://mannabri.de",
+    label: "Solo app development studio run by Manuel",
   },
   {
     id: "wheelie-tracker",
@@ -106,6 +111,7 @@ const posters = [
     path: "/posters/wheelie-tracker.png",
     layer: 2,
     url: "https://apps.apple.com/us/app/my-wheelie-tracker/id6781165193",
+    label: "My Wheelie Tracker, an iOS app for tracking wheelie rides.",
   },
   {
     id: "ui-catalog",
@@ -118,6 +124,7 @@ const posters = [
     path: "/posters/ui-catalog.png",
     layer: 2,
     url: "https://apps.apple.com/us/app/ui-catalog-for-swiftui/id6788291355",
+    label: "UI Catalog for SwiftUI, a SwiftUI component reference app.",
   },
   {
     id: "farted",
@@ -130,6 +137,7 @@ const posters = [
     path: "/posters/farted.png",
     layer: 2,
     url: "https://apps.apple.com/us/app/farted/id6806994447",
+    label: "Farted, a fun iOS app for logging and tracking farts.",
   },
   // {
   //   id: "medium-text",
