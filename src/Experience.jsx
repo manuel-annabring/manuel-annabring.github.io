@@ -4,13 +4,16 @@ import Controls from "./scene/Controls";
 import Layout from "./scene/Layout";
 import Lights from "./scene/Lights";
 import Shadows from "./scene/Shadows";
+import useIntroCamera from "./scene/useIntroCamera";
 
 export default function Experience() {
+  const introIsFinished = useIntroCamera();
+
   return (
     <>
       <color args={["ivory"]} attach="background" />
       <Lights />
-      <Controls />
+      {introIsFinished && <Controls />}
 
       <Layout>
         <Column />
