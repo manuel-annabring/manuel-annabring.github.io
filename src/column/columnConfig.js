@@ -1,17 +1,17 @@
 const column = {
   body: {
-    radius: 1.4,
+    radius: 1,
     height: 3.5,
     radialSegments: 64,
   },
   base: {
-    radius: 1.5,
+    radius: 1.1,
     height: 0.5,
     radialSegments: 64,
   },
   cap: {
-    radius: 1.7,
-    height: 0.4,
+    radius: 1.2,
+    height: 0.2,
     radialSegments: 64,
   },
 };
