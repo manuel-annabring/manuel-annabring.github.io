@@ -19,7 +19,7 @@
 //
 // IMAGE FIELDS
 // - width: width in world units. The height follows the image's aspect ratio.
-// - path:  image file in /public, for example "/posters/ocean.png"
+// - path:  image file in /public, for example "/posters/ocean.webp"
 //
 // TEXT FIELDS
 // - text:     the string to render
@@ -44,7 +44,7 @@ const posters = [
       angle: MathUtils.degToRad(30),
       y: 0.44,
     },
-    path: "/posters/name.png",
+    path: "/posters/name.webp",
     layer: 1,
     label: "Manuel Annabring",
   },
@@ -56,7 +56,7 @@ const posters = [
       angle: MathUtils.degToRad(-5.2),
       y: -1.28,
     },
-    path: "/posters/x.png",
+    path: "/posters/x.webp",
     layer: 2,
     url: "https://x.com/manuelannabring",
     label: "Personal X account",
@@ -69,7 +69,7 @@ const posters = [
       angle: MathUtils.degToRad(30),
       y: -1.28,
     },
-    path: "/posters/github.png",
+    path: "/posters/github.webp",
     layer: 1,
     url: "https://github.com/manuel-annabring",
     label: "Personal GitHub account",
@@ -82,7 +82,7 @@ const posters = [
       angle: MathUtils.degToRad(65.2),
       y: -1.28,
     },
-    path: "/posters/linkedin.png",
+    path: "/posters/linkedin.webp",
     layer: 2,
     url: "https://linkedin.com/in/manuel-annabring",
     label: "Personal LinkedIn account",
@@ -95,7 +95,7 @@ const posters = [
       angle: MathUtils.degToRad(135),
       y: 1.38,
     },
-    path: "/posters/mannabri.png",
+    path: "/posters/mannabri.webp",
     layer: 2,
     url: "https://mannabri.de",
     label: "Solo app development studio run by Manuel",
@@ -108,7 +108,7 @@ const posters = [
       angle: MathUtils.degToRad(135),
       y: -0.37,
     },
-    path: "/posters/wheelie-tracker.png",
+    path: "/posters/wheelie-tracker.webp",
     layer: 2,
     url: "https://apps.apple.com/us/app/my-wheelie-tracker/id6781165193",
     label: "My Wheelie Tracker, an iOS app for tracking wheelie rides.",
@@ -121,7 +121,7 @@ const posters = [
       angle: MathUtils.degToRad(226),
       y: 0.72,
     },
-    path: "/posters/ui-catalog.png",
+    path: "/posters/ui-catalog.webp",
     layer: 3,
     url: "https://apps.apple.com/us/app/ui-catalog-for-swiftui/id6788291355",
     label: "UI Catalog for SwiftUI, a SwiftUI component reference app.",
@@ -134,7 +134,7 @@ const posters = [
       angle: MathUtils.degToRad(226),
       y: -1.01,
     },
-    path: "/posters/farted.png",
+    path: "/posters/farted.webp",
     layer: 3,
     url: "https://apps.apple.com/us/app/farted/id6806994447",
     label: "Farted, a fun iOS app for logging and tracking farts.",
@@ -147,7 +147,7 @@ const posters = [
       angle: MathUtils.degToRad(301),
       y: 0.81,
     },
-    path: "/posters/what-is-this-thing.png",
+    path: "/posters/what-is-this-thing.webp",
     layer: 2,
     url: "https://en.wikipedia.org/wiki/Advertising_column",
     label: "Curious what a Litfaßsäule is? Read more on Wikipedia",
@@ -160,7 +160,7 @@ const posters = [
       angle: MathUtils.degToRad(301),
       y: -0.91,
     },
-    path: "/posters/when-not-coding.png",
+    path: "/posters/when-not-coding.webp",
     layer: 2,
     label: "When not coding: bouldering and wakeboarding",
   },
