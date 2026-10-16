@@ -1,10 +1,9 @@
-import { Suspense } from "react";
+import { useTexture } from "@react-three/drei";
 import useColumn from "../column/useColumn";
 import ImagePoster from "./ImagePoster";
 import posterConfig from "./posterConfig";
 import posters from "./posters";
 import TextPoster from "./TextPoster";
-import { useTexture } from "@react-three/drei";
 
 export default function Content() {
   const { body } = useColumn();
@@ -17,18 +16,10 @@ export default function Content() {
     const radius = body.radius + posterConfig.layerStep * layer;
 
     if (type === "image") {
-      return (
-        <Suspense key={id}>
-          <ImagePoster poster={poster} radius={radius} normalMapTexture={normalMapTexture} />
-        </Suspense>
-      );
+      return <ImagePoster key={id} poster={poster} radius={radius} normalMapTexture={normalMapTexture} />;
     }
     if (type === "text") {
-      return (
-        <Suspense key={id}>
-          <TextPoster poster={poster} radius={radius} />
-        </Suspense>
-      );
+      return <TextPoster key={id} poster={poster} radius={radius} />;
     }
   });
 }

@@ -13,7 +13,7 @@ export default function Lights() {
 
   return (
     <>
-      <Environment preset="city" environmentIntensity={environmentIntensity} />
+      <Environment files="/environments/potsdamer_platz_1k.hdr" environmentIntensity={environmentIntensity} />
       <directionalLight position={position} intensity={intensity} />
     </>
   );
