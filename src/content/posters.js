@@ -139,6 +139,17 @@ const posters = [
     url: "https://apps.apple.com/us/app/farted/id6806994447",
     label: "Farted, a fun iOS app for logging and tracking farts.",
   },
+  {
+    id: "when-not-coding",
+    type: "image",
+    width: 1.4,
+    position: {
+      angle: MathUtils.degToRad(320),
+      y: 0.8,
+    },
+    path: "/posters/when-not-coding.png",
+    layer: 1,
+  },
   // {
   //   id: "medium-text",
   //   type: "text",
