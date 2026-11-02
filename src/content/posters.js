@@ -153,16 +153,17 @@ const posters = [
     label: "Curious what a Litfaßsäule is? Read more on Wikipedia",
   },
   {
-    id: "when-not-coding",
+    id: "typewriter",
     type: "image",
     width: 1.2,
     position: {
       angle: MathUtils.degToRad(301),
       y: -0.91,
     },
-    path: "/posters/when-not-coding.webp",
+    path: "/posters/typewriter.webp",
     layer: 2,
-    label: "When not coding: bouldering and wakeboarding",
+    url: "https://manuel-annabring.github.io/typewriter/",
+    label: "Typewriter, a 3D typewriter in your browser",
   },
   // {
   //   id: "medium-text",
